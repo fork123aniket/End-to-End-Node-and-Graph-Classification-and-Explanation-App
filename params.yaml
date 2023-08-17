@@ -1,0 +1,36 @@
+dataset_name: 'Cora'
+graph_dataset_name: 'ENZYMES'
+batch_size: 60
+apply_data_transform: False
+data_split: 'public'
+num_train_samples: 100
+num_val_samples: 500
+num_test_samples: 1000
+num_features: 1433
+num_classes: 7
+graph_num_features: 3
+graph_num_classes: 6
+num_epochs: 20
+n_startup_trials: 5
+n_warmup_steps: 5
+interval_steps: 2
+n_trials: 15
+n_runs: 5
+num_hops: 2
+graph_num_hops: 3
+top_k: 5
+edge_width: 3000
+direction: "minimize"
+exp_name: 'GraphExperiment'
+ind_to_cls: {0: 'Case_Based', 1: 'Genetic_Algorithms', 2: 'Neural_Networks',
+              3: 'Probabilistic_Methods', 4: 'Reinforcement_Learning', 5: 'Rule_Learning',
+              6: 'Theory'}
+graph_ind_to_cls: {0: 'EC-1 (Oxidoreductase)', 1: 'EC-2 (Transferase)', 2: 'EC-3 (Hydrolase)',
+              3: 'EC-4 (Lyase)', 4: 'EC-5 (Isomerase)', 5: 'EC-6 (Synthetase)'}
+num_hidden_features: 16
+learning_rate: 0.09757632130475774
+weight_decay_ratio: 0.0004710124097652081
+num_hidden_1: 5
+num_hidden_2: 5
+graph_learning_rate: 0.03264219402252366
+graph_weight_decay_ratio: 0.0002774640465429473

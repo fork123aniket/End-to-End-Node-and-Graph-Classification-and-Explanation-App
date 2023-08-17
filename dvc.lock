@@ -1,0 +1,79 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python data_ingestion_pipeline.py
+    deps:
+    - path: data_ingestion_pipeline.py
+      md5: 3178d7d091c8b34af36dac2bc732e8c2
+      size: 725
+    params:
+      params.yaml:
+        apply_data_transform: false
+        data_split: public
+        dataset_name: Cora
+        num_test_samples: 1000
+        num_train_samples: 100
+        num_val_samples: 500
+    outs:
+    - path: artifacts/data
+      md5: fced7f2413a20c8da9ec7296f3abd26c.dir
+      size: 16296395
+      nfiles: 11
+  tuning:
+    cmd: python tuning_pipeline.py
+    deps:
+    - path: artifacts/data
+      md5: fced7f2413a20c8da9ec7296f3abd26c.dir
+      size: 16296395
+      nfiles: 11
+    - path: src/constants
+      md5: 069c46137e39650f7c857a71b83a5f8c.dir
+      size: 2128
+      nfiles: 4
+    - path: tuning_pipeline.py
+      md5: 23aee89366ebad87ad30c33477cde915
+      size: 751
+    params:
+      params.yaml:
+        direction: minimize
+        interval_steps: 2
+        n_startup_trials: 5
+        n_trials: 15
+        n_warmup_steps: 5
+        num_classes: 7
+        num_epochs: 20
+        num_features: 1433
+  training:
+    cmd: python training_pipeline.py
+    deps:
+    - path: artifacts/data
+      md5: fced7f2413a20c8da9ec7296f3abd26c.dir
+      size: 16296395
+      nfiles: 11
+    - path: params.yaml
+      md5: c1c28494e8041f86bd107963eb3dcdf9
+      size: 647
+    - path: src/utils/common.py
+      md5: b3577e767eb319fa33d3b5d58889d511
+      size: 2521
+    - path: training_pipeline.py
+      md5: 45a1299b73360fdad36d8a508463b517
+      size: 1147
+    params:
+      params.yaml:
+        exp_name: GraphExperiment
+        learning_rate: 0.09757632130475774
+        num_classes: 7
+        num_epochs: 20
+        num_features: 1433
+        num_hidden_features: 16
+        weight_decay_ratio: 0.0004710124097652081
+    outs:
+    - path: artifacts/model
+      md5: ecec0e6a7b8bcf0d94e530c0ebc486de.dir
+      size: 97491
+      nfiles: 1
+    - path: experiments
+      md5: 706c9e62f6751acca697f87a688fd85b.dir
+      size: 501304
+      nfiles: 92
