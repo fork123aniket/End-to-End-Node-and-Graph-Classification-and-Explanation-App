@@ -2,8 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 import plotly.express as px
 import base64
-import aiofiles
-import asyncio
 
 from src.pipeline.prediction_pipeline import PredictPipeline
 from  src.constants.config import *
@@ -39,19 +37,6 @@ def set_png_as_page_bg(png_file):
     return
 
 
-# def disable():
-#     st.session_state.delete.disabled = False
-
-async def display_graph():
-    backgroundColor = st.get_option("theme.backgroundColor")
-    black_background = f"<style>:root {{background-color: {backgroundColor};}}</style>"
-    st.header("Extracted Explanation Subgraph")
-    print("in async")
-    async with aiofiles.open("htmlfiles/small_explained_graph.html", 'r', encoding='utf-8') as small_graph_html_file:
-        small_graph_source_code = await small_graph_html_file.read()
-    components.html(small_graph_source_code + black_background, height=610)
-
-
 def main():
     set_png_as_page_bg('dark.jpg')
     st.title("GNN-powered Classification and Explanation App")
@@ -72,7 +57,7 @@ def main():
             #                          min_value=0, max_value=2707, key='1',
             #                          value=val_chosen, disabled=True)
             with st.spinner("Executing the request..."):
-                print("in condition")
+                # print("in condition")
                 obj = PredictPipeline(val_chosen)
                 obj.load_model()
                 predicted_class = obj.predict()
@@ -103,22 +88,22 @@ def main():
                 with tab3:
                     st.plotly_chart(bar_figure, True)
                 with tab4:
-                    st.header("Explanation Graph for the selected Graph ID")
-                    st.info("Important edges (part of learned edge mask, if any) have been "
-                            "displayed in 'Orange' color", icon="ℹ️")
+                    # st.header("Explanation Graph for the selected Graph ID")
+                    # st.info("Important edges (part of learned edge mask, if any) have been "
+                    #         "displayed in 'Orange' color", icon="ℹ️")
                     # backgroundColor = st.get_option("theme.backgroundColor")
                     # black_background = f"<style>:root {{background-color: {backgroundColor};}}</style>"
                     # # st.cache(allow_output_mutation=True)
                     explanation_check = obj.visualize_explanation_subgraph(explainer)
-                    print(explanation_check)
-                    html_file = open(GraphPath.node_net_graph.value, 'r', encoding='utf-8')
-                    source_code = html_file.read()
-                    components.html(source_code + black_background, height=790)
+                    # print(explanation_check)
+                    # html_file = open(GraphPath.node_net_graph.value, 'r', encoding='utf-8')
+                    # source_code = html_file.read()
+                    # components.html(source_code + black_background, height=790)
                     if explanation_check:
                         # asyncio.run(display_graph())
                         # loop = asyncio.get_event_loop()
                         # loop.run_until_complete(display_graph())
-                        st.header("Extracted Explanation Subgraph")
+                        st.header("Extracted Explanation Subgraph for the selected Node ID")
                         small_graph_html_file = open(GraphPath.node_extract_graph.value, 'r', encoding='utf-8')
                         small_graph_source_code = small_graph_html_file.read()
                         components.html(small_graph_source_code + black_background, height=610)
@@ -134,14 +119,14 @@ def main():
             min_value=0, max_value=599, key='value1',
             value=-1)
         val_chosen = int(input_chosen)
-        print(f'val_chosen: {val_chosen, st.session_state.value1}')
+        # print(f'val_chosen: {val_chosen, st.session_state.value1}')
         if val_chosen >= 0:
             # graph_placeholder.number_input(
             #     "Type Graph ID to classify and explain",
             #     min_value=0, max_value=599, key='value2',
             #     value=st.session_state.value1, disabled=True)
             with st.spinner("Executing the request..."):
-                print("in condition")
+                # print("in condition")
                 obj = PredictPipeline(val_chosen, task='graph')
                 obj.load_model()
                 predicted_class = obj.predict()
