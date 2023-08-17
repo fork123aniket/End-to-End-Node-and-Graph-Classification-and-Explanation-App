@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/G/GraphMaskExplainer/experiments/ENZYMES/1/64e0470fa01a4e229f7399e866178ed0/artifacts
+end_time: 1692008404215
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+run_id: 64e0470fa01a4e229f7399e866178ed0
+run_name: graph_net_mlflow_exp
+run_uuid: 64e0470fa01a4e229f7399e866178ed0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692008382841
+status: 3
+tags: []
+user_id: dell
