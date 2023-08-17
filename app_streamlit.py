@@ -96,7 +96,7 @@ def main():
                     # black_background = f"<style>:root {{background-color: {backgroundColor};}}</style>"
                     st.info("Green-colored node reflects the node with the selected Node ID", icon="ℹ️")
                     obj.visualize_node_subgraph()
-                    html_file = open(GraphPath.node_subgraph, 'r', encoding='utf-8')
+                    html_file = open("htmlfiles/graph.html", 'r', encoding='utf-8')
                     source_code = html_file.read()
                     components.html(source_code + black_background, height=610)
                     # st.text("Green-colored node reflects the node with the selected Node ID")
