@@ -69,7 +69,8 @@ def main():
                                     title=f"Feature importance for top {len(data)} features")
                 bar_figure.update_layout(
                     hoverlabel=dict(
-                        bgcolor="black"
+                        bgcolor="#828282",
+                        bordercolor="white"
                     )
                 )
                 tab1, tab2, tab3, tab4 = st.tabs([
@@ -143,7 +144,8 @@ def main():
                                     title=f"Feature importance for all {len(data)} features")
                 bar_figure.update_layout(
                     hoverlabel=dict(
-                        bgcolor="black"
+                        bgcolor="#828282",
+                        bordercolor="white"
                     )
                 )
                 tab1, tab2, tab3, tab4 = st.tabs([
