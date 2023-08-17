@@ -160,7 +160,6 @@ python-slugify==8.0.1
 pytz==2022.7.1
 pytz-deprecation-shim==0.1.0.post0
 pyvis==0.3.2
-pywinpty==2.0.10
 PyYAML==6.0.1
 pyzmq==24.0.1
 qtconsole==5.4.3
