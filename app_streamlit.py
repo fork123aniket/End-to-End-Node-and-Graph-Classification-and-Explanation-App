@@ -67,6 +67,11 @@ def main():
                                     hover_data=["score", "feature_id"],
                                     height=400,
                                     title=f"Feature importance for top {len(data)} features")
+                bar_figure.update_layout(
+                    hoverlabel=dict(
+                        bgcolor="black"
+                    )
+                )
                 tab1, tab2, tab3, tab4 = st.tabs([
                     'Predicted Class', 'Original Graph',
                     'Feature Importance', 'Explained Graph'
