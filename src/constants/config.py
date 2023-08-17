@@ -3,8 +3,8 @@ from pathlib import Path
 
 
 class DataIngestion(Enum):
-    root_dir: Path = "E:/G/GraphMaskExplainer/artifacts/data/Cora"
-    graph_root_dir: Path = "E:/G/GraphMaskExplainer/artifacts/data/ENZYMES"
+    root_dir: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/artifacts/data/Cora"
+    graph_root_dir: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/artifacts/data/ENZYMES"
 
 
 class ParamConfig(Enum):
@@ -12,14 +12,14 @@ class ParamConfig(Enum):
 
 
 class LoggingStack(Enum):
-    base_dir: Path = "E:/G/GraphMaskExplainer/logs"
+    base_dir: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/logs"
 
 
 class TrainModel(Enum):
-    model_save_dir: Path = "E:/G/GraphMaskExplainer/artifacts/model/node/"
-    graph_model_save_dir: Path = "E:/G/GraphMaskExplainer/artifacts/model/graph/"
-    model_registry_path: Path = "E:/G/GraphMaskExplainer/experiments/Cora"
-    graph_model_registry_path: Path = "E:/G/GraphMaskExplainer/experiments/ENZYMES"
+    model_save_dir: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/artifacts/model/node/"
+    graph_model_save_dir: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/artifacts/model/graph/"
+    model_registry_path: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/experiments/Cora"
+    graph_model_registry_path: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/experiments/ENZYMES"
 
 
 class TuningPath(Enum):
