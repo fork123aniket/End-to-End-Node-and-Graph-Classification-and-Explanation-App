@@ -56,8 +56,8 @@ class PredictPipeline:
     def visualize_node_subgraph(self):
         subset, edge_index = self.compute_node_subgraph()
 
-        print(f'subset: {subset}\nedges: {edge_index}\n'
-              f'edge_list: {list(zip(edge_index[0].tolist(), edge_index[1].tolist()))}')
+        # print(f'subset: {subset}\nedges: {edge_index}\n'
+        #       f'edge_list: {list(zip(edge_index[0].tolist(), edge_index[1].tolist()))}')
 
         net = Network(
             bgcolor='#222222', font_color='white',
@@ -89,7 +89,7 @@ class PredictPipeline:
 
     def visualize_explanation_subgraph(self, explain: Explanation) -> bool:
         edge_weight = explain.get("edge_mask")
-        print(f'original edge weights: {edge_weight}')
+        # print(f'original edge weights: {edge_weight}')
         edge_weight = (edge_weight - edge_weight.min()) / edge_weight.max()
         mask = edge_weight > 1e-7
         if self.task == 'node':
@@ -99,39 +99,39 @@ class PredictPipeline:
         edge_weight = edge_weight[mask]
         edge_weight = torch.where(edge_weight != 1, edge_weight, self.params.edge_width)
         unique_edge_weight = edge_weight.view(-1).unique().tolist()
-        print(f'unique edge_weight values: {edge_weight.view(-1).unique().tolist()}')
+        # print(f'unique edge_weight values: {edge_weight.view(-1).unique().tolist()}')
 
         if len(unique_edge_weight) == 1 and self.params.edge_width in unique_edge_weight:
             explanation_check = False
         else:
             explanation_check = True
 
-        # if self.task == 'graph':
-        net = Network(
-            bgcolor='#222222', font_color='white',
-            select_menu=True, filter_menu=True,
-            cdn_resources='remote'
-        )
-        # net.barnes_hut(spring_strength=0.006)
-        unique_nodes = edge_index.view(-1).unique().tolist()
-        # if self.task == 'node':
-        #     net.add_nodes(unique_nodes, label=[str(node_id) for node_id in unique_nodes],
-        #                   color=['#32cd32' if node_id == self.node_index else '#00ffff' for node_id in unique_nodes])
-        # else:
-        net.add_nodes(unique_nodes, label=[str(node_id) for node_id in unique_nodes])
-        for src, dst, width in zip(edge_index[0].tolist(), edge_index[1].tolist(),
-                                   edge_weight.tolist()):
-            if width == self.params.edge_width:
-                print(f'tuple: {src, dst, width}')
-                # if not explanation_check:
-                #     net.add_edge(src, dst, value=width)
-                # else:
-                net.add_edge(src, dst, value=width, color='orange')
-            else:
-                if width == torch.max(edge_weight):
+        if self.task == 'graph':
+            net = Network(
+                bgcolor='#222222', font_color='white',
+                select_menu=True, filter_menu=True,
+                cdn_resources='remote'
+            )
+            # net.barnes_hut(spring_strength=0.006)
+            unique_nodes = edge_index.view(-1).unique().tolist()
+            # if self.task == 'node':
+            #     net.add_nodes(unique_nodes, label=[str(node_id) for node_id in unique_nodes],
+            #                   color=['#32cd32' if node_id == self.node_index else '#00ffff' for node_id in unique_nodes])
+            # else:
+            net.add_nodes(unique_nodes, label=[str(node_id) for node_id in unique_nodes])
+            for src, dst, width in zip(edge_index[0].tolist(), edge_index[1].tolist(),
+                                       edge_weight.tolist()):
+                if width == self.params.edge_width:
+                    # print(f'tuple: {src, dst, width}')
+                    # if not explanation_check:
+                    #     net.add_edge(src, dst, value=width)
+                    # else:
                     net.add_edge(src, dst, value=width, color='orange')
                 else:
-                    net.add_edge(src, dst, value=width)
+                    if width == torch.max(edge_weight):
+                        net.add_edge(src, dst, value=width, color='orange')
+                    else:
+                        net.add_edge(src, dst, value=width)
         # net.add_edges(list(
         #     zip(edge_index[0].tolist(), edge_index[1].tolist(),
         #         edge_weight.tolist())
@@ -145,7 +145,7 @@ class PredictPipeline:
                     edge_weight.tolist()
                     )
             )
-            print(f'expl_edge_list: {explained_edge_list}')
+            # print(f'expl_edge_list: {explained_edge_list}')
             smaller_net = Network(
                 bgcolor='#222222', font_color='white',
                 cdn_resources='remote'
@@ -161,15 +161,15 @@ class PredictPipeline:
                 if (self.params.edge_width in edge_tuple or
                         self.params.edge_width not in unique_edge_weight and
                         torch.max(edge_weight) in edge_tuple):
-                    print(f'edge_tuple: {edge_tuple, type(edge_tuple[0])}')
+                    # print(f'edge_tuple: {edge_tuple, type(edge_tuple[0])}')
                     node_list.append([edge_tuple[0], edge_tuple[1]])
                     # smaller_net.add_edge(edge_tuple[0], edge_tuple[1], color='orange')
 
-            print(f'node_list before pruning: {node_list}')
-            # if self.task == 'node':
-            #     node_list = node_list if len(node_list) <= 10 else node_list[:10]
+            # print(f'node_list before pruning: {node_list}')
+            if self.task == 'node':
+                node_list = node_list if len(node_list) <= 10 else node_list[:10]
             unique_node_list = list(set(list(chain.from_iterable(node_list))))
-            print(f'unique_node_list: {unique_node_list}')
+            # print(f'unique_node_list: {unique_node_list}')
             # if self.task == 'node':
             #     smaller_net.add_nodes(unique_node_list, label=[str(node_id) for node_id in unique_node_list],
             #                           color=['#32cd32' if node_id == self.node_index else '#00ffff' for node_id in
@@ -177,13 +177,13 @@ class PredictPipeline:
             # else:
             smaller_net.add_nodes(unique_node_list, label=[str(node_id) for node_id in unique_node_list])
 
-            print(f'node_list: {node_list}')
+            # print(f'node_list: {node_list}')
 
             for edge_list in node_list:
                 smaller_net.add_edge(edge_list[0], edge_list[1], color='orange')
 
         if self.task == 'node':
-            net.write_html(GraphPath.node_net_graph.value, local=False)
+            # net.write_html(GraphPath.node_net_graph.value, local=False)
             if explanation_check:
                 smaller_net.write_html(GraphPath.node_extract_graph.value, local=False)
         else:
@@ -256,7 +256,7 @@ class PredictPipeline:
                 batch=batch
             )
             predicted_class_index = prediction.argmax(dim=-1).item()
-            print(f'prediction: {prediction}\nindex: {predicted_class_index}')
+            # print(f'prediction: {prediction}\nindex: {predicted_class_index}')
 
         predicted_class = self.index_to_class(predicted_class_index)
 
