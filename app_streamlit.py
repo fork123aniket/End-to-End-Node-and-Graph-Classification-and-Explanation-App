@@ -6,6 +6,7 @@ import aiofiles
 import asyncio
 
 from src.pipeline.prediction_pipeline import PredictPipeline
+from  src.constants.config import *
 
 
 backgroundColor = st.get_option("theme.backgroundColor")
@@ -95,30 +96,30 @@ def main():
                     # black_background = f"<style>:root {{background-color: {backgroundColor};}}</style>"
                     st.info("Green-colored node reflects the node with the selected Node ID", icon="ℹ️")
                     obj.visualize_node_subgraph()
-                    html_file = open("htmlfiles/graph.html", 'r', encoding='utf-8')
+                    html_file = open(GraphPath.node_subgraph.value, 'r', encoding='utf-8')
                     source_code = html_file.read()
                     components.html(source_code + black_background, height=610)
                     # st.text("Green-colored node reflects the node with the selected Node ID")
                 with tab3:
                     st.plotly_chart(bar_figure, True)
                 with tab4:
-                    # st.header("Explanation Graph for the selected Graph ID")
-                    # st.info("Important edges (part of learned edge mask, if any) have been "
-                    #         "displayed in 'Orange' color", icon="ℹ️")
+                    st.header("Explanation Graph for the selected Graph ID")
+                    st.info("Important edges (part of learned edge mask, if any) have been "
+                            "displayed in 'Orange' color", icon="ℹ️")
                     # backgroundColor = st.get_option("theme.backgroundColor")
                     # black_background = f"<style>:root {{background-color: {backgroundColor};}}</style>"
                     # # st.cache(allow_output_mutation=True)
                     explanation_check = obj.visualize_explanation_subgraph(explainer)
                     print(explanation_check)
-                    # html_file = open("htmlfiles/explained_graph.html", 'r', encoding='utf-8')
-                    # source_code = html_file.read()
-                    # components.html(source_code + black_background, height=790)
+                    html_file = open(GraphPath.node_net_graph.value, 'r', encoding='utf-8')
+                    source_code = html_file.read()
+                    components.html(source_code + black_background, height=790)
                     if explanation_check:
                         # asyncio.run(display_graph())
                         # loop = asyncio.get_event_loop()
                         # loop.run_until_complete(display_graph())
                         st.header("Extracted Explanation Subgraph")
-                        small_graph_html_file = open("htmlfiles/small_explained_graph.html", 'r', encoding='utf-8')
+                        small_graph_html_file = open(GraphPath.node_extract_graph.value, 'r', encoding='utf-8')
                         small_graph_source_code = small_graph_html_file.read()
                         components.html(small_graph_source_code + black_background, height=610)
             # placeholder.number_input("Type Node ID to classify and explain",
@@ -163,7 +164,7 @@ def main():
                     # backgroundColor = st.get_option("theme.backgroundColor")
                     # black_background = f"<style>:root {{background-color: {backgroundColor};}}</style>"
                     obj.visualize_original_graph()
-                    html_file = open("htmlfiles/enzyme_original_graph.html", 'r', encoding='utf-8')
+                    html_file = open(GraphPath.original_graph.value, 'r', encoding='utf-8')
                     source_code = html_file.read()
                     components.html(source_code + black_background, height=610)
                 with tab3:
@@ -176,12 +177,12 @@ def main():
                             "displayed in 'Orange' color", icon="ℹ️")
                     # st.cache(allow_output_mutation=True)
                     explanation_check = obj.visualize_explanation_subgraph(explainer)
-                    html_file = open("htmlfiles/enzyme_explained_graph.html", 'r', encoding='utf-8')
+                    html_file = open(GraphPath.graph_net_graph.value, 'r', encoding='utf-8')
                     source_code = html_file.read()
                     components.html(source_code + black_background, height=790)
                     if explanation_check:
                         st.header("Extracted Explanation Subgraph")
-                        small_graph_html_file = open("htmlfiles/enzyme_small_explained_graph.html", 'r', encoding='utf-8')
+                        small_graph_html_file = open(GraphPath.graph_extract_graph.value, 'r', encoding='utf-8')
                         small_graph_source_code = small_graph_html_file.read()
                         components.html(small_graph_source_code + black_background, height=610)
             # graph_placeholder.number_input(

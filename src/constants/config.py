@@ -22,5 +22,14 @@ class TrainModel(Enum):
     graph_model_registry_path: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/experiments/ENZYMES"
 
 
+class GraphPath(Enum):
+    node_net_graph: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/htmlfiles/explained_graph.html"
+    node_subgraph: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/htmlfiles/graph.html"
+    node_extract_graph: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/htmlfiles/small_explained_graph.html"
+    graph_net_graph: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/htmlfiles/enzyme_explained_graph.html"
+    original_graph: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/htmlfiles/enzyme_original_graph.html"
+    graph_extract_graph: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/htmlfiles/enzyme_small_explained_graph.html"
+
+
 class TuningPath(Enum):
-    params_path: Path = "E:/G/GraphMaskExplainer/src/constants/params.py"
+    params_path: Path = "/mount/src/end-to-end-node-and-graph-classification-and-explanation-app/src/constants/params.py"
