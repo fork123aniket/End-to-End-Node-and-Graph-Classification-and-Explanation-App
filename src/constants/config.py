@@ -8,7 +8,7 @@ class DataIngestion(Enum):
 
 
 class ParamConfig(Enum):
-    path_to_yaml: Path = "E:/G/GraphMaskExplainer/params.yaml"
+    path_to_yaml: Path = "https://github.com/fork123aniket/End-to-End-Node-and-Graph-Classification-and-Explanation-App/blob/master/params.yaml"
 
 
 class LoggingStack(Enum):
