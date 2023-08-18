@@ -1,5 +1,7 @@
 # End-to-End Node and Graph Classification and Explanation App
 
+[![Graph Explainability App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graphexplainability.streamlit.app/)
+
 This repo contains project code for the ***Graph Explainability*** system that when receives Node ID or Graph ID as user input:
 - Classifies the ***node*** or ***graph***;
 - Displays ***feature importances*** based on computed ***explained feature mask***;
@@ -21,4 +23,4 @@ This repo contains project code for the ***Graph Explainability*** system that w
 
 ## App Accessibility
 To view and access the app, please click [***here***](https://graphexplainability.streamlit.app/) or type in the following web address to your browser:
-[**graphexplainability.streamlit.app**](https://graphexplainability.streamlit.app/)
+[**https://graphexplainability.streamlit.app/**](https://graphexplainability.streamlit.app/)
