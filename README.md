@@ -28,4 +28,4 @@ To view and access the app, please click [***here***](https://graphexplainabilit
 ## App Usage
 To learn more about how to use this ***Graph Neural Networks-powered deployed app***, please consider watching the following video:
 
-https://github.com/fork123aniket/End-to-End-Node-and-Graph-Classification-and-Explanation-App/assets/92912434/7301af6e-a765-4dde-a17d-bc433e7db463
+https://github.com/fork123aniket/End-to-End-Node-and-Graph-Classification-and-Explanation-App/assets/92912434/5f584975-3c9f-4dec-b856-c0d038cf9a61
