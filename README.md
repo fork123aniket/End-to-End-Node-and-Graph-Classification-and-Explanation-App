@@ -24,3 +24,8 @@ This repo contains project code for the ***Graph Explainability*** system that w
 ## App Accessibility
 To view and access the app, please click [***here***](https://graphexplainability.streamlit.app/) or type in the following web address to your browser:
 [**https://graphexplainability.streamlit.app/**](https://graphexplainability.streamlit.app/)
+
+## App Usage
+To learn more about how to use this ***Graph Neural Networks-powered deployed app***, please consider watching the following video:
+
+https://github.com/fork123aniket/End-to-End-Node-and-Graph-Classification-and-Explanation-App/assets/92912434/7301af6e-a765-4dde-a17d-bc433e7db463
