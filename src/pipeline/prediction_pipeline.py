@@ -6,7 +6,8 @@ import pandas as pd
 from itertools import chain
 
 from torch_geometric.utils import k_hop_subgraph
-from torch_geometric.explain import Explainer, Explanation, GraphMaskExplainer
+from torch_geometric.contrib.explain import GraphMaskExplainer
+from torch_geometric.explain import Explainer, Explanation
 
 from torch import Tensor
 
