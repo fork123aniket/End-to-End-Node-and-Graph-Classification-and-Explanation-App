@@ -4,7 +4,7 @@ import plotly.express as px
 import base64
 
 from src.pipeline.prediction_pipeline import PredictPipeline
-from  src.constants.config import *
+from src.constants.config import *
 
 
 backgroundColor = st.get_option("theme.backgroundColor")
