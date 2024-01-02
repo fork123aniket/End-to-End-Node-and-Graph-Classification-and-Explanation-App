@@ -18,7 +18,7 @@ This repo contains project code for the ***Graph Explainability*** system that w
 - `PyTorch Geometric`
 
 ## Data
-- `Node Classification`: [***Cora***](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html#torch_geometric.datasets.Planetoid) dataset is used that contains a ***homogeneous graph*** comprising ***2708 nodes*** and ***1433 `node_features`*** along with ***7 class labels***.
+- `Node Classification`: [***Cora***](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html#torch_geometric.datasets.Planetoid) dataset is used that contains a ***homogeneous graph*** comprising ***2708 nodes*** and ***1433 node_features*** along with ***7 class labels***.
 - `Graph Classification`: [***ENZYMES***](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.TUDataset.html) dataset contains ***600 homogeneous graphs*** along with ***3 node_features*** and the task is to classify any of these graphs in ***6 different Enzymes***.
 
 ## App Accessibility
