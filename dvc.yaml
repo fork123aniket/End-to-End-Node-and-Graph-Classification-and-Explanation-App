@@ -1,0 +1,54 @@
+stages:
+  data_ingestion:
+    cmd: python data_ingestion_pipeline.py
+    deps:
+      - data_ingestion_pipeline.py
+#      - src/constants/params.yaml
+    params:
+      - apply_data_transform
+      - dataset_name
+      - data_split
+      - num_train_samples
+      - num_val_samples
+      - num_test_samples
+    outs:
+      - artifacts/data
+
+
+  tuning:
+    cmd: python tuning_pipeline.py
+    deps:
+      - tuning_pipeline.py
+      - src/constants
+      - artifacts/data
+    params:
+      - num_epochs
+      - num_features
+      - num_classes
+      - n_startup_trials
+      - n_warmup_steps
+      - interval_steps
+      - n_trials
+      - direction
+#    outs:
+#      - src/constants/params.py
+
+
+  training:
+    cmd: python training_pipeline.py
+    deps:
+      - training_pipeline.py
+      - params.yaml
+      - src/utils/common.py
+      - artifacts/data
+    params:
+      - num_epochs
+      - num_features
+      - num_classes
+      - weight_decay_ratio
+      - learning_rate
+      - num_hidden_features
+      - exp_name
+    outs:
+      - artifacts/model
+      - experiments

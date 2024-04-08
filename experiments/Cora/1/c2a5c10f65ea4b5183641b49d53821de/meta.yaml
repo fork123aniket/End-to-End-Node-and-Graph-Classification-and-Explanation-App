@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/G/GraphMaskExplainer/experiments/1/c2a5c10f65ea4b5183641b49d53821de/artifacts
+end_time: 1691750333017
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+run_id: c2a5c10f65ea4b5183641b49d53821de
+run_name: gcn_mlflow_exp
+run_uuid: c2a5c10f65ea4b5183641b49d53821de
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691750320335
+status: 3
+tags: []
+user_id: dell
