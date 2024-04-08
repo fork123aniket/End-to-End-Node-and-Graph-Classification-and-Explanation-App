@@ -121,7 +121,7 @@ nest-asyncio==1.5.7
 networkx==2.6.3
 notebook==6.5.5
 notebook_shim==0.2.3
-numpy==1.21.6
+numpy
 oauthlib==3.2.2
 optuna==3.3.0
 packaging==21.3
