@@ -1,4 +1,4 @@
-# End-to-End Node and Graph Classification and Explanation App
+# :rocket: End-to-End Node and Graph Classification and Explanation App
 
 [![Graph Explainability App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-explainability.streamlit.app/)
 
