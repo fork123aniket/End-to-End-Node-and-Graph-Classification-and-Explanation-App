@@ -177,11 +177,11 @@ def main():
                     html_file = open(GraphPath.graph_net_graph.value, 'r', encoding='utf-8')
                     source_code = html_file.read()
                     components.html(source_code + black_background, height=790)
-                    if explanation_check:
-                        st.header("Extracted Explanation Subgraph")
-                        small_graph_html_file = open(GraphPath.graph_extract_graph.value, 'r', encoding='utf-8')
-                        small_graph_source_code = small_graph_html_file.read()
-                        components.html(small_graph_source_code + black_background, height=610)
+                    # if explanation_check:
+                    #     st.header("Extracted Explanation Subgraph")
+                    #     small_graph_html_file = open(GraphPath.graph_extract_graph.value, 'r', encoding='utf-8')
+                    #     small_graph_source_code = small_graph_html_file.read()
+                    #     components.html(small_graph_source_code + black_background, height=610)
             # graph_placeholder.number_input(
             #     "Type Graph ID to classify and explain",
             #     min_value=0, max_value=599, key='value3',
