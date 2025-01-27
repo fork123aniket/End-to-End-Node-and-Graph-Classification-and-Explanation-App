@@ -1,6 +1,6 @@
 # :rocket: End-to-End Node and Graph Classification and Explanation App
 
-[![Graph Explainability App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-explanability.streamlit.app/)
+[![Graph Explainability App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://graph-explainability.streamlit.app/)
 
 This repo contains project code for the ***Graph Explainability*** system that when receives Node ID or Graph ID as user input:
 - Classifies the ***node*** or ***graph***;
@@ -22,8 +22,8 @@ This repo contains project code for the ***Graph Explainability*** system that w
 - `Graph Classification`: [***ENZYMES***](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.TUDataset.html) dataset contains ***600 homogeneous graphs*** along with ***3 node_features*** and the task is to classify any of these graphs in ***6 different Enzymes***.
 
 ## App Accessibility
-To view and access the app, please click [***here***](https://graph-explanability.streamlit.app/) or type in the following web address to your browser:
-[**https://graphexplanability.streamlit.app/**](https://graph-explanability.streamlit.app/)
+To view and access the app, please click [***here***](https://graph-explainability.streamlit.app/) or type in the following web address to your browser:
+[**https://graphexplanability.streamlit.app/**](https://graph-explainability.streamlit.app/)
 
 ## App Usage
 To learn more about how to use this ***Graph Neural Networks-powered deployed app***, please consider watching the following video:
